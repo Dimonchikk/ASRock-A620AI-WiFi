@@ -3,174 +3,305 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Драйвери для ASRock A620AI WiFi</title>
-
+<title>Драйвери для ASRock A620AI WiFi — Windows 11</title>
+<meta name="description" content="Усі драйвери для материнської плати ASRock A620AI WiFi в одному місці: чипсет, звук, мережа, Wi-Fi, Bluetooth. Windows 11 64-bit.">
+<meta name="theme-color" content="#0A6CFF">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta property="og:title" content="Драйвери для ASRock A620AI WiFi">
+<meta property="og:description" content="Чипсет, звук, LAN, Wi-Fi та Bluetooth для Windows 11 — у правильному порядку встановлення.">
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",Tahoma,sans-serif;
+:root{
+  --bg:#f5f5f7; --card:#ffffff; --text:#1d1d1f; --muted:#6e6e73; --line:#e5e5ea;
+  --accent:#0A6CFF; --accent-2:#4FB3FF; --accent-soft:rgba(10,108,255,.10);
+  --ok:#30a46c; --warn-bg:#fff8e6; --warn-line:#f5d48a; --warn-text:#7a5a00;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --radius:18px;
 }
-
+[data-theme="dark"]{
+  --bg:#0b0b0d; --card:#17171a; --text:#f5f5f7; --muted:#9a9aa1; --line:#2a2a2f;
+  --accent-soft:rgba(79,179,255,.14);
+  --warn-bg:#2a2210; --warn-line:#5c4a1a; --warn-text:#f0d18a;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    background:#f2f3f5;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI Variable","Segoe UI",Inter,Roboto,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.5;
+  -webkit-font-smoothing:antialiased;transition:background .25s,color .25s;
 }
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
 
-.container{
-    width:900px;
-    max-width:95%;
-    margin:40px auto;
-    background:#fff;
-    border-radius:8px;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
-    overflow:hidden;
-}
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(18px);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;height:56px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;color:var(--text)}
+.brand img{width:28px;height:28px}
+.bar nav{margin-left:auto;display:flex;gap:6px;align-items:center}
+.pill{border:1px solid var(--line);background:var(--card);color:var(--text);
+  border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;font-weight:500}
+.pill:hover{border-color:var(--accent)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.lang button{border:0;background:none;color:var(--muted);padding:6px 10px;font-size:13px;cursor:pointer;font-weight:600}
+.lang button.on{background:var(--accent);color:#fff}
 
-.header{
-    padding:30px;
-}
+/* hero */
+.hero{text-align:center;padding:64px 0 36px}
+.hero img{width:112px;height:112px;filter:drop-shadow(0 12px 28px rgba(10,108,255,.35))}
+.hero h1{font-size:clamp(30px,5vw,48px);letter-spacing:-.02em;margin:22px 0 10px;line-height:1.1}
+.hero p{color:var(--muted);font-size:clamp(16px,2.2vw,19px);max-width:620px;margin:0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 0}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--card);
+  border:1px solid var(--line);color:var(--muted)}
+.chip b{color:var(--text);font-weight:600}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:28px;background:var(--accent);
+  color:#fff;text-decoration:none;padding:13px 24px;border-radius:999px;font-weight:600;font-size:16px;
+  box-shadow:0 6px 18px rgba(10,108,255,.35);transition:transform .15s,box-shadow .15s}
+.cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,108,255,.42)}
 
-.header h1{
-    font-size:38px;
-    color:#222;
-    margin-bottom:8px;
-}
+section{padding:28px 0}
+h2.sec{font-size:24px;letter-spacing:-.01em;margin-bottom:6px}
+p.sub{color:var(--muted);margin-bottom:18px}
 
-.header h2{
-    font-size:24px;
-    color:#1976ff;
-    margin-bottom:15px;
-}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:s}
+.step{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);position:relative}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;
+  border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;margin-bottom:10px}
+.step h3{font-size:15px;margin-bottom:4px}
+.step p{font-size:13.5px;color:var(--muted)}
 
-.info{
-    color:#666;
-    font-size:14px;
-    line-height:1.7;
-}
+/* toolbar */
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.search{flex:1 1 240px;display:flex;align-items:center;gap:8px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:0 12px}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.search input{border:0;outline:0;background:none;color:var(--text);font-size:15px;padding:11px 0;width:100%}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:var(--card);color:var(--text);
+  padding:8px 13px;border-radius:999px;font-size:13.5px;cursor:pointer;font-weight:500}
+.filters button.on{background:var(--text);color:var(--bg);border-color:var(--text)}
 
-.section-title{
-    margin-top:10px;
-    border-left:4px solid #1976ff;
-    background:#fafafa;
-    padding:12px 18px;
-    font-size:18px;
-    font-weight:600;
-}
+/* driver cards */
+.list{display:grid;gap:12px}
+.drv{display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:center;
+  background:var(--card);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);
+  transition:transform .15s}
+.drv:hover{transform:translateY(-1px)}
+.ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;color:#fff}
+.ico svg{width:26px;height:26px}
+.drv h3{font-size:16.5px;font-weight:600}
+.meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-top:2px}
+.tag{background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:1px 8px;font-weight:600;font-size:12px}
+.drv p.d{color:var(--muted);font-size:13.5px;margin-top:4px}
+.dl{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;
+  padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;white-space:nowrap;transition:background .15s}
+.dl:hover{background:#0857d6}
+.dl.done{background:var(--ok)}
+.dl svg{width:16px;height:16px}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px}
 
-table{
-    width:100%;
-    border-collapse:collapse;
-}
+/* note */
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-text);
+  border-radius:14px;padding:14px 16px;font-size:14px;margin-top:16px}
 
-th{
-    background:#fff;
-    color:#666;
-    font-weight:600;
-    text-align:left;
-}
+/* faq */
+details{background:var(--card);border-radius:14px;box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;padding:16px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--muted);font-size:20px;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details .a{padding:0 18px 16px;color:var(--muted);font-size:14.5px}
 
-th,td{
-    padding:16px;
-    border-bottom:1px solid #ececec;
-}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+footer a{color:var(--muted)}
 
-.download{
-    background:#1976ff;
-    color:#fff;
-    text-decoration:none;
-    padding:8px 18px;
-    border-radius:4px;
-    font-size:14px;
-    transition:.2s;
-}
-
-.download:hover{
-    background:#0d63e5;
-}
-
-.footer{
-    padding:20px 30px;
-    color:#777;
-    font-size:13px;
+@media (max-width:760px){
+  .steps{grid-template-columns:1fr 1fr}
+  .drv{grid-template-columns:44px 1fr;row-gap:12px}
+  .ico{width:44px;height:44px;border-radius:12px}
+  .dl{grid-column:1/-1;justify-content:center}
+  .bar .brand span{display:none}
 }
 </style>
-
 </head>
 <body>
 
-<div class="container">
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/icon.svg" alt=""><span>A620AI WiFi Drivers</span></a>
+    <nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-l="uk" class="on">УКР</button><button data-l="ru">РУС</button><button data-l="en">ENG</button>
+      </div>
+      <button class="pill" id="theme" aria-label="Theme" style="display:grid;place-items:center;padding:6px 9px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
 
-<div class="header">
+<main class="wrap">
 
-<h1>Завантаження драйверів</h1>
+  <section class="hero">
+    <img src="assets/icon.svg" alt="">
+    <h1 data-i="h1">Драйвери для ASRock A620AI WiFi</h1>
+    <p data-i="lead">Усе, що потрібно після встановлення Windows 11, — на одній сторінці. Качай по черзі зверху вниз і перезавантажуйся після чипсета.</p>
+    <div class="chips">
+      <span class="chip">🪟 <b>Windows 11</b> 64-bit</span>
+      <span class="chip">📦 <b>5</b> <span data-i="drivers">драйверів</span></span>
+      <span class="chip">💾 <b>≈162 MB</b> <span data-i="total">разом</span></span>
+      <span class="chip">🗓 <span data-i="upd">Оновлено</span> <b>02.08.2026</b></span>
+    </div>
+    <a class="cta" href="#drivers"><span data-i="cta">Перейти до завантаження</span> ↓</a>
+  </section>
 
-<h2>ASRock A620AI WiFi</h2>
+  <section id="order">
+    <h2 class="sec" data-i="orderT">Порядок встановлення</h2>
+    <p class="sub" data-i="orderS">Так менше шансів, що щось не підхопиться.</p>
+    <div class="steps">
+      <div class="step"><h3 data-i="s1t">Чипсет</h3><p data-i="s1">AMD Chipset Driver — першим. Потім перезавантаж ПК.</p></div>
+      <div class="step"><h3 data-i="s2t">Мережа</h3><p data-i="s2">LAN та Wi-Fi, щоб з'явився інтернет.</p></div>
+      <div class="step"><h3 data-i="s3t">Bluetooth</h3><p data-i="s3">Після Wi-Fi — вони на одному модулі MediaTek.</p></div>
+      <div class="step"><h3 data-i="s4t">Звук</h3><p data-i="s4">Realtek Audio і фінальне перезавантаження.</p></div>
+    </div>
+  </section>
 
-<div class="info">
-<b>Материнська плата:</b> ASRock A620AI WiFi<br>
-<b>Оновлено:</b> 02.08.2026<br>
-<b>Мова:</b> Українська<br>
-<b>Платформа:</b> Windows® 11 64-bit
-</div>
+  <section id="drivers">
+    <h2 class="sec" data-i="drvT">Драйвери</h2>
+    <p class="sub" data-i="drvS">Натисни «Скачати» — файл відкриється на MEGA. Завантажені позначаються зеленим.</p>
 
-</div>
+    <div class="tools">
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--muted)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Пошук драйвера…" data-ph="search" autocomplete="off">
+      </label>
+      <div class="filters" id="filters">
+        <button data-f="all" class="on" data-i="all">Усі</button>
+        <button data-f="system" data-i="fSys">Система</button>
+        <button data-f="net" data-i="fNet">Мережа</button>
+        <button data-f="audio" data-i="fAud">Звук</button>
+      </div>
+    </div>
 
-<div class="section-title">
-Системні драйвери
-</div>
+    <div class="list" id="list"></div>
+    <div class="empty" id="empty" data-i="empty">Нічого не знайдено 🤷</div>
 
-<table>
+    <div class="note" data-i="note">⚠️ Це неофіційне дзеркало для зручності. Якщо сумніваєшся у файлі — завантаж ту саму версію з офіційного сайту ASRock (посилання внизу).</div>
+  </section>
 
-<tr>
-<th>Тип</th>
-<th>Драйвер</th>
-<th>Розмір</th>
-<th>Завантажити</th>
-</tr>
+  <section id="faq">
+    <h2 class="sec" data-i="faqT">Питання</h2>
+    <details><summary data-i="q1">Як встановити драйвер?</summary><div class="a" data-i="a1">Розпакуй завантажений архів, запусти <b>Setup.exe</b> або <b>Install.exe</b> і дотримуйся інструкцій. Якщо інсталятора немає — Диспетчер пристроїв → пристрій → «Оновити драйвер» → «Знайти на цьому комп'ютері» і вкажи розпаковану папку.</div></details>
+    <details><summary data-i="q2">MEGA пише, що перевищено ліміт</summary><div class="a" data-i="a2">На безкоштовному акаунті є ліміт трафіку. Зачекай трохи або відкрий посилання через застосунок MEGA / інший браузер.</div></details>
+    <details><summary data-i="q3">Чи підійде для Windows 10?</summary><div class="a" data-i="a3">Драйвери зібрані під Windows 11 64-bit. На Windows 10 64-bit більшість зазвичай працює, але гарантії немає.</div></details>
+    <details><summary data-i="q4">Не працює Wi-Fi або Bluetooth</summary><div class="a" data-i="a4">Переконайся, що антени прикручені до задньої панелі, а в BIOS увімкнено WLAN/BT. Спочатку став Wi-Fi, потім Bluetooth, і перезавантаж ПК.</div></details>
+  </section>
 
-<tr>
-<td>Chipset</td>
-<td>AMD Chipset Driver</td>
-<td>71.2 MB</td>
-<td><a class="download" href="https://mega.nz/file/nQ0UiK6b#F0radTbgUirP84tqSZ49DeuCYlnFKCJmfbEJnc_dOPw">Скачати</a></td>
-</tr>
+</main>
 
-<tr>
-<td>Audio</td>
-<td>Realtek High Definition Audio Driver</td>
-<td>55.4 MB</td>
-<td><a class="download" href="https://mega.nz/file/LJl0ECTT#BoVzkYgGsCw6VO89CnMtaRh3nzqdgiHuwt6_SgCHIfA">Скачати</a></td>
-</tr>
+<footer>
+  <div class="wrap">
+    <p data-i="foot">Неофіційна сторінка. ASRock — торговельна марка ASRock Inc.; сайт з нею не пов'язаний.</p>
+    <p style="margin-top:6px">
+      <a href="https://www.asrock.com/support/index.asp" target="_blank" rel="noopener" data-i="official">Офіційна підтримка ASRock</a> ·
+      <a href="https://github.com/Dimonchikk/ASRock-A620AI-WiFi" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
 
-<tr>
-<td>LAN</td>
-<td>Realtek LAN Driver</td>
-<td>4.92 MB</td>
-<td><a class="download" href="https://mega.nz/file/DRs0CDJY#DdNoCpK9NEkdbkn7fFIL3kNyca3-J_b1wJQ3sLYu-IA">Скачати</a></td>
-</tr>
+<script>
+const ICONS={
+  chip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>',
+  audio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>',
+  lan:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-4h14v4"/></svg>',
+  wifi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.6a10 10 0 0 1 14 0M8.5 16.4a5 5 0 0 1 7 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>',
+  bt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 5V2l5 5L7 17"/></svg>'
+};
+const DRIVERS=[
+  {id:'chipset',cat:'system',type:'Chipset',name:'AMD Chipset Driver',size:'71.2 MB',icon:'chip',color:'linear-gradient(135deg,#ff6a3d,#e0301e)',
+   url:'https://mega.nz/file/nQ0UiK6b#F0radTbgUirP84tqSZ49DeuCYlnFKCJmfbEJnc_dOPw',
+   d:{uk:'Ставити першим. Керування живленням і шинами AMD.',ru:'Ставить первым. Управление питанием и шинами AMD.',en:'Install first. AMD power management and bus drivers.'}},
+  {id:'lan',cat:'net',type:'LAN',name:'Realtek LAN Driver',size:'4.92 MB',icon:'lan',color:'linear-gradient(135deg,#34c759,#1f9d55)',
+   url:'https://mega.nz/file/DRs0CDJY#DdNoCpK9NEkdbkn7fFIL3kNyca3-J_b1wJQ3sLYu-IA',
+   d:{uk:'Дротовий інтернет через кабель.',ru:'Проводной интернет по кабелю.',en:'Wired Ethernet connection.'}},
+  {id:'wifi',cat:'net',type:'Wi-Fi',name:'MediaTek Wireless LAN Driver',size:'25.4 MB',icon:'wifi',color:'linear-gradient(135deg,#4FB3FF,#0A6CFF)',
+   url:'https://mega.nz/file/rVEXSJyB#bzszbmg-nwSLkUHaO55cxTFnDktHadHKOMN18B6rQvE',
+   d:{uk:'Бездротова мережа (модуль MediaTek).',ru:'Беспроводная сеть (модуль MediaTek).',en:'Wireless network (MediaTek module).'}},
+  {id:'bt',cat:'net',type:'Bluetooth',name:'MediaTek Bluetooth Driver',size:'5.22 MB',icon:'bt',color:'linear-gradient(135deg,#7a7cff,#4b4ddc)',
+   url:'https://mega.nz/file/LcEA3YrQ#Wmy6sgiYZFd0qfjva75Cj17c9qubcCmY2Ojkwo9lCoY',
+   d:{uk:'Навушники, геймпади, мишки. Після Wi-Fi.',ru:'Наушники, геймпады, мышки. После Wi-Fi.',en:'Headphones, gamepads, mice. After Wi-Fi.'}},
+  {id:'audio',cat:'audio',type:'Audio',name:'Realtek High Definition Audio Driver',size:'55.4 MB',icon:'audio',color:'linear-gradient(135deg,#ff9f0a,#ff6a00)',
+   url:'https://mega.nz/file/LJl0ECTT#BoVzkYgGsCw6VO89CnMtaRh3nzqdgiHuwt6_SgCHIfA',
+   d:{uk:'Звук на задній і передній панелі.',ru:'Звук на задней и передней панели.',en:'Rear and front panel audio.'}}
+];
 
-<tr>
-<td>Wi-Fi</td>
-<td>MediaTek Wireless LAN Driver</td>
-<td>25.4 MB</td>
-<td><a class="download" href="https://mega.nz/file/rVEXSJyB#bzszbmg-nwSLkUHaO55cxTFnDktHadHKOMN18B6rQvE">Скачати</a></td>
-</tr>
+const T={
+ uk:{h1:'Драйвери для ASRock A620AI WiFi',lead:'Усе, що потрібно після встановлення Windows 11, — на одній сторінці. Качай по черзі зверху вниз і перезавантажуйся після чипсета.',drivers:'драйверів',total:'разом',upd:'Оновлено',cta:'Перейти до завантаження',orderT:'Порядок встановлення',orderS:'Так менше шансів, що щось не підхопиться.',s1t:'Чипсет',s1:'AMD Chipset Driver — першим. Потім перезавантаж ПК.',s2t:'Мережа',s2:"LAN та Wi-Fi, щоб з'явився інтернет.",s3t:'Bluetooth',s3:'Після Wi-Fi — вони на одному модулі MediaTek.',s4t:'Звук',s4:'Realtek Audio і фінальне перезавантаження.',drvT:'Драйвери',drvS:'Натисни «Скачати» — файл відкриється на MEGA. Завантажені позначаються зеленим.',search:'Пошук драйвера…',all:'Усі',fSys:'Система',fNet:'Мережа',fAud:'Звук',empty:'Нічого не знайдено 🤷',dl:'Скачати',done:'Завантажено',note:'⚠️ Це неофіційне дзеркало для зручності. Якщо сумніваєшся у файлі — завантаж ту саму версію з офіційного сайту ASRock (посилання внизу).',faqT:'Питання',
+  q1:'Як встановити драйвер?',a1:'Розпакуй завантажений архів, запусти <b>Setup.exe</b> або <b>Install.exe</b> і дотримуйся інструкцій. Якщо інсталятора немає — Диспетчер пристроїв → пристрій → «Оновити драйвер» → «Знайти на цьому комп\'ютері» і вкажи розпаковану папку.',
+  q2:'MEGA пише, що перевищено ліміт',a2:'На безкоштовному акаунті є ліміт трафіку. Зачекай трохи або відкрий посилання через застосунок MEGA / інший браузер.',
+  q3:'Чи підійде для Windows 10?',a3:'Драйвери зібрані під Windows 11 64-bit. На Windows 10 64-bit більшість зазвичай працює, але гарантії немає.',
+  q4:'Не працює Wi-Fi або Bluetooth',a4:'Переконайся, що антени прикручені до задньої панелі, а в BIOS увімкнено WLAN/BT. Спочатку став Wi-Fi, потім Bluetooth, і перезавантаж ПК.',
+  foot:"Неофіційна сторінка. ASRock — торговельна марка ASRock Inc.; сайт з нею не пов'язаний.",official:'Офіційна підтримка ASRock',title:'Драйвери для ASRock A620AI WiFi — Windows 11'},
+ ru:{h1:'Драйверы для ASRock A620AI WiFi',lead:'Всё, что нужно после установки Windows 11, — на одной странице. Качай по очереди сверху вниз и перезагружайся после чипсета.',drivers:'драйверов',total:'всего',upd:'Обновлено',cta:'Перейти к загрузке',orderT:'Порядок установки',orderS:'Так меньше шансов, что что-то не подхватится.',s1t:'Чипсет',s1:'AMD Chipset Driver — первым. Потом перезагрузи ПК.',s2t:'Сеть',s2:'LAN и Wi-Fi, чтобы появился интернет.',s3t:'Bluetooth',s3:'После Wi-Fi — они на одном модуле MediaTek.',s4t:'Звук',s4:'Realtek Audio и финальная перезагрузка.',drvT:'Драйверы',drvS:'Нажми «Скачать» — файл откроется на MEGA. Скачанные отмечаются зелёным.',search:'Поиск драйвера…',all:'Все',fSys:'Система',fNet:'Сеть',fAud:'Звук',empty:'Ничего не найдено 🤷',dl:'Скачать',done:'Скачано',note:'⚠️ Это неофициальное зеркало для удобства. Если сомневаешься в файле — скачай ту же версию с официального сайта ASRock (ссылка внизу).',faqT:'Вопросы',
+  q1:'Как установить драйвер?',a1:'Распакуй архив, запусти <b>Setup.exe</b> или <b>Install.exe</b> и следуй инструкциям. Если установщика нет — Диспетчер устройств → устройство → «Обновить драйвер» → «Найти на этом компьютере» и укажи распакованную папку.',
+  q2:'MEGA пишет, что превышен лимит',a2:'На бесплатном аккаунте есть лимит трафика. Подожди немного или открой ссылку через приложение MEGA / другой браузер.',
+  q3:'Подойдёт ли для Windows 10?',a3:'Драйверы собраны под Windows 11 64-bit. На Windows 10 64-bit большинство обычно работает, но гарантии нет.',
+  q4:'Не работает Wi-Fi или Bluetooth',a4:'Убедись, что антенны прикручены к задней панели, а в BIOS включён WLAN/BT. Сначала ставь Wi-Fi, потом Bluetooth, и перезагрузи ПК.',
+  foot:'Неофициальная страница. ASRock — торговая марка ASRock Inc.; сайт с ней не связан.',official:'Официальная поддержка ASRock',title:'Драйверы для ASRock A620AI WiFi — Windows 11'},
+ en:{h1:'ASRock A620AI WiFi Drivers',lead:'Everything you need after installing Windows 11, on one page. Download top to bottom and reboot after the chipset driver.',drivers:'drivers',total:'total',upd:'Updated',cta:'Go to downloads',orderT:'Install order',orderS:'Following it means fewer devices left unrecognized.',s1t:'Chipset',s1:'AMD Chipset Driver first. Then reboot.',s2t:'Network',s2:'LAN and Wi-Fi to get online.',s3t:'Bluetooth',s3:'After Wi-Fi — same MediaTek module.',s4t:'Audio',s4:'Realtek Audio, then a final reboot.',drvT:'Drivers',drvS:'Click “Download” — the file opens on MEGA. Downloaded ones turn green.',search:'Search drivers…',all:'All',fSys:'System',fNet:'Network',fAud:'Audio',empty:'Nothing found 🤷',dl:'Download',done:'Downloaded',note:'⚠️ This is an unofficial mirror for convenience. If you doubt a file, get the same version from the official ASRock site (link below).',faqT:'FAQ',
+  q1:'How do I install a driver?',a1:'Extract the archive, run <b>Setup.exe</b> or <b>Install.exe</b> and follow the prompts. No installer? Device Manager → device → “Update driver” → “Browse my computer” and point to the extracted folder.',
+  q2:'MEGA says the transfer quota is exceeded',a2:'Free accounts have a bandwidth limit. Wait a bit or open the link in the MEGA app / another browser.',
+  q3:'Will it work on Windows 10?',a3:'These are Windows 11 64-bit packages. Most usually work on Windows 10 64-bit, but no guarantee.',
+  q4:'Wi-Fi or Bluetooth not working',a4:'Make sure the antennas are screwed onto the rear panel and WLAN/BT is enabled in BIOS. Install Wi-Fi first, then Bluetooth, then reboot.',
+  foot:'Unofficial page. ASRock is a trademark of ASRock Inc.; this site is not affiliated with it.',official:'Official ASRock support',title:'ASRock A620AI WiFi Drivers — Windows 11'}
+};
 
-<tr>
-<td>Bluetooth</td>
-<td>MediaTek Bluetooth Driver</td>
-<td>5.22 MB</td>
-<td><a class="download" href="https://mega.nz/file/LcEA3YrQ#Wmy6sgiYZFd0qfjva75Cj17c9qubcCmY2Ojkwo9lCoY">Скачати</a></td>
-</tr>
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang=store.get('lang')||'uk', filter='all';
+let done=new Set(JSON.parse(store.get('done')||'[]'));
 
-</table>
+const dlIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>';
+const okIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>';
 
-<div class="footer">
-© 2026 ASRock A620AI WiFi Driver Download Center
-</div>
+function render(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const items=DRIVERS.filter(x=>(filter==='all'||x.cat===filter)&&
+    (x.name+' '+x.type+' '+x.d[lang]).toLowerCase().includes(q));
+  document.getElementById('list').innerHTML=items.map(x=>{
+    const ok=done.has(x.id);
+    return `<article class="drv">
+      <div class="ico" style="background:${x.color}">${ICONS[x.icon]}</div>
+      <div><h3>${x.name}</h3>
+        <div class="meta"><span class="tag">${x.type}</span><span>${x.size}</span></div>
+        <p class="d">${x.d[lang]}</p></div>
+      <a class="dl${ok?' done':''}" data-id="${x.id}" href="${x.url}" target="_blank" rel="noopener">${ok?okIcon:dlIcon}<span>${ok?T[lang].done:T[lang].dl}</span></a>
+    </article>`}).join('');
+  document.getElementById('empty').style.display=items.length?'none':'block';
+}
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(el=>{const v=T[lang][el.dataset.i]; if(v!=null) el.innerHTML=v});
+  document.getElementById('q').placeholder=T[lang].search;
+  document.title=T[lang].title;
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  render();
+}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;store.set('lang',lang);applyLang()});
+document.getElementById('filters').onclick=e=>{const b=e.target.closest('button'); if(!b)return;
+  filter=b.dataset.f; document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b)); render()};
+document.getElementById('q').oninput=render;
+document.getElementById('list').onclick=e=>{const a=e.target.closest('.dl'); if(!a)return;
+  done.add(a.dataset.id); store.set('done',JSON.stringify([...done])); setTimeout(render,50)};
 
-</div>
+// theme
+const root=document.documentElement;
+const sysDark=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;
+root.dataset.theme=store.get('theme')||(sysDark?'dark':'light');
+document.getElementById('theme').onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';store.set('theme',root.dataset.theme)};
 
+applyLang();
+</script>
 </body>
 </html>
