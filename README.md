@@ -12,6 +12,7 @@
 [![Windows](https://img.shields.io/badge/Windows-11%2064--bit-0A6CFF?logo=windows11&logoColor=white)](#-драйвери)
 [![Drivers](https://img.shields.io/badge/драйверів-5-8a5cf6)](#-драйвери)
 [![Updated](https://img.shields.io/badge/оновлено-02.08.2026-555)](#-драйвери)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Languages](https://img.shields.io/badge/мови-УКР%20·%20РУС%20·%20ENG-f5c518)](https://dimonchikk.github.io/ASRock-A620AI-WiFi/)
 
 ### [🌐 Відкрити сайт](https://dimonchikk.github.io/ASRock-A620AI-WiFi/) · [Драйвери](#-драйвери) · [Порядок](#-порядок-встановлення) · [Можливості](#-можливості-сайту) · [Питання](#-питання)
@@ -66,6 +67,10 @@ assets/icon.svg  — іконка
 ```
 
 Сайт публікується через GitHub Pages з гілки `main`. Щоб додати драйвер — допиши об'єкт у масив `DRIVERS` в `index.html`.
+
+## 📄 Ліцензія
+
+Код сайту — [MIT](LICENSE). Ліцензія стосується лише коду сторінки, а не самих драйверів: вони належать своїм виробникам (AMD, Realtek, MediaTek).
 
 ---
 
